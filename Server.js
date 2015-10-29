@@ -5,6 +5,7 @@ var md5 = require('MD5');
 var rest = require("./REST.js");
 var app  = express();
 
+
 function REST(){
     var self = this;
     self.connectMysql();
@@ -13,13 +14,13 @@ function REST(){
 REST.prototype.connectMysql = function() {
     var self = this;
     var pool      =    mysql.createPool({
-        connectionLimit : 100,
-        host     : 'localhost',
-        user     : 'root',
-        password : 'clara02',
-        database : 'entrega_restfull_api',
-        debug    :  false
-    });
+        connectionLimit : 4, /**/
+        host     : 'us-cdbr-azure-west-c.cloudapp.net', /*'localhost'*/
+        user     : 'be608e6641559c', /*root*/
+        password : '4ae974c0', /*clara02*/
+        database : 'as_45c42c9325ea7e0', /*entrega_restfull_api*/
+        debug    :  false /*debug    :  false*/
+      });
     pool.getConnection(function(err,connection){
         if(err) {
           self.stop(err);

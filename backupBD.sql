@@ -26,7 +26,7 @@ CREATE TABLE `entrega` (
   `ClienteID` int(11) NOT NULL,
   `NomeRecebedor` varchar(50) DEFAULT NULL,
   `CPFRecebedor` char(11) DEFAULT NULL,
-  `ProprioComprador` tinyint(1) DEFAULT NULL,
+  `ProprioComprador` boolean DEFAULT true,
   `Data` datetime DEFAULT NULL,
   `Localizacao` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`Id`)
