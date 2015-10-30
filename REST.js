@@ -76,6 +76,13 @@ REST_ROUTER.prototype.handleRoutes = function(router,connection,md5) {
             }
         });
     });
+    
+    router.get("/RelEntrega",function(req,res){
+        res.redirect('./relatorio.php');
+        
+    });
+    
+    
 }
 
 module.exports = REST_ROUTER;
