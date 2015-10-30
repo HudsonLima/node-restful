@@ -6,7 +6,6 @@ function REST_ROUTER(router,connection,md5) {
 }
 
 REST_ROUTER.prototype.handleRoutes = function(router,connection,md5) {
-    var self = this;
     router.get("/",function(req,res){
         res.json({"Message" : "RestFull Api by Hudson Lima !"});
     });
