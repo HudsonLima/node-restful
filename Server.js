@@ -39,10 +39,12 @@ REST.prototype.configureExpress = function(connection) {
       var self = this;
       app.use(bodyParser.urlencoded({ extended: true }));
       app.use(bodyParser.json());
+      app.use(express.static(__dirname + '/public'))
       var router = express.Router();
       app.use('/api', router);
       var rest_router = new rest(router,connection,md5);
       self.startServer();
+      
 }
 
 REST.prototype.startServer = function() {
