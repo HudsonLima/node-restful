@@ -19,7 +19,7 @@ function REST(){
 REST.prototype.connectMysql = function() {
     var self = this;
     var pool      =    mysql.createPool({
-        connectionLimit : 100, /**/
+        connectionLimit : 4, /**/
         host     : 'localhost', /*'us-cdbr-azure-west-c.cloudapp.net'*/
         user     : 'root', /*be608e6641559c*/
         password : 'clara02', /*4ae974c0*/
