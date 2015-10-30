@@ -22,7 +22,7 @@ REST.prototype.connectMysql = function() {
         connectionLimit : 4, /**/
         host     : 'localhost', /*'us-cdbr-azure-west-c.cloudapp.net'*/
         user     : 'root', /*be608e6641559c*/
-        password : 'clara02', /*4ae974c0*/
+        password : '', /*4ae974c0*/
         database : 'entrega_restful_api', /* as_45c42c9325ea7e0*/
         debug    :  false /*debug    :  false*/
       });
@@ -40,8 +40,7 @@ REST.prototype.configureExpress = function(connection) {
       app.use(bodyParser.urlencoded({ extended: true }));
       app.use(bodyParser.json());
       app.use(express.static(__dirname + '/public'))
-      app.use('/relatorio', express.static('./relatorio.php'));
-    
+      app.use('/relatorio', express.static('public/relatorio.php'));
       var router = express.Router();
       app.use('/api', router);
       var rest_router = new rest(router,connection,md5);
@@ -68,3 +67,5 @@ new REST();
 app.get('/', function(req, res) {
 	res.redirect('./index.html');
 });
+
+  
