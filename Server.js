@@ -6,10 +6,15 @@ var rest = require("./REST.js");
 var app  = express();
 
 
+
+
 function REST(){
     var self = this;
     self.connectMysql();
 };
+
+
+
 
 REST.prototype.connectMysql = function() {
     var self = this;
@@ -18,7 +23,7 @@ REST.prototype.connectMysql = function() {
         host     : 'localhost', /*'us-cdbr-azure-west-c.cloudapp.net'*/
         user     : 'root', /*be608e6641559c*/
         password : 'clara02', /*4ae974c0*/
-        database : 'entrega_restfull_api', /* as_45c42c9325ea7e0*/
+        database : 'entrega_restful_api', /* as_45c42c9325ea7e0*/
         debug    :  false /*debug    :  false*/
       });
     pool.getConnection(function(err,connection){
@@ -51,4 +56,11 @@ REST.prototype.stop = function(err) {
     process.exit(1);
 }
 
+
+
 new REST();
+
+
+app.get('/', function(req, res) {
+	res.redirect('./index.html');
+});
