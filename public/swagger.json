@@ -1,0 +1,164 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "0.0.1",
+        "title": "Todo List API",
+        "description": "This document describes the Todo List API"
+    },
+    "host": "localhost:3000",
+    "tags": [
+        {
+            "name": "Entrega",
+            "description": "Everything about delivery"
+        }
+    ],
+    "schemes": [
+        "http"
+    ],
+    "basePath": "/api",
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/entrega": {
+            "get": {
+                "tags": [
+                    "entrega"
+                ],
+                "summary": "List all deliverys",
+                "description": "Gets `Delivery` objects.\n",
+                "responses": {
+                    "200": {
+                        "description": "List all delivery",
+                        "schema": {
+                            "title": "delivery",
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/entrega"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "entrega"
+                ],
+                "summary": "Create a new delivery",
+                "parameters": [
+                    {
+                        "name": "delivery",
+                        "in": "body",
+                        "description": "Create a delivery",
+                        "schema": {
+                            "$ref": "#/definitions/entrega"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "delivery added"
+                    }
+                }
+            }
+        },
+        "/entrega/{Id}": {
+            "get": {
+                "tags": [
+                    "entrega"
+                ],
+                "summary": "Get a specific delivery",
+                "description": "Gets `delivery` objects.\n",
+                "parameters": [
+                    {
+                        "name": "Id",
+                        "in": "path",
+                        "type": "string",
+                        "description": "ID of the delivery",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "entrega",
+                        "schema": {
+                            "title": "entrega",
+                            "type": "object",
+                            "items": {
+                                "$ref": "#/definitions/entrega"
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "entrega"
+                ],
+                "summary": "Update a specific delivery",
+                "parameters": [
+                    {
+                        "name": "Id",
+                        "in": "path",
+                        "type": "string",
+                        "description": "ID of the delivery",
+                        "required": true
+                    },
+                    {
+                        "name": "entrega",
+                        "in": "body",
+                        "description": "delivery with the updated information",
+                        "schema": {
+                            "$ref": "#/definitions/entrega"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Save a delivery"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "entrega"
+                ],
+                "summary": "Delete a specific delivery",
+                "parameters": [
+                    {
+                        "name": "Id",
+                        "in": "path",
+                        "type": "string",
+                        "description": "ID of the delivery",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No response received"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "entrega": {
+            "properties": {
+                "Id": {
+                    "type": "integer"
+                },
+                "done": {
+                    "type": "boolean"
+                },
+                "description": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
