@@ -15,10 +15,10 @@ REST.prototype.connectMysql = function() {
     var self = this;
     var pool      =    mysql.createPool({
         connectionLimit : 4, /**/
-        host     : 'us-cdbr-azure-west-c.cloudapp.net', /*'localhost'*/
-        user     : 'be608e6641559c', /*root*/
-        password : '4ae974c0', /*clara02*/
-        database : 'as_45c42c9325ea7e0', /*entrega_restfull_api*/
+        host     : 'localhost', /*'us-cdbr-azure-west-c.cloudapp.net'*/
+        user     : 'root', /*be608e6641559c*/
+        password : 'clara02', /*4ae974c0*/
+        database : 'entrega_restfull_api', /* as_45c42c9325ea7e0*/
         debug    :  false /*debug    :  false*/
       });
     pool.getConnection(function(err,connection){
