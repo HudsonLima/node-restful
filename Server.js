@@ -40,6 +40,8 @@ REST.prototype.configureExpress = function(connection) {
       app.use(bodyParser.urlencoded({ extended: true }));
       app.use(bodyParser.json());
       app.use(express.static(__dirname + '/public'))
+      app.use('/relatorio', express.static('./relatorio.php'));
+    
       var router = express.Router();
       app.use('/api', router);
       var rest_router = new rest(router,connection,md5);
