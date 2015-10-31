@@ -67,7 +67,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/relatorio', function(req, res) {
-	res.redirect('./relatorio.html');
+	res.redirect('./relatorio.php');
 });
 
 
