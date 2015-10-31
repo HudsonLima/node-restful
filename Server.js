@@ -4,7 +4,7 @@ var bodyParser  = require("body-parser");
 var md5 = require('MD5');
 var rest = require("./REST.js");
 var app  = express();
-var render = require('php-node')({bin:"c://php//php.exe"});
+var render = require('php-node');
 
 render(__dirname+'/relatorio.php', {}, function(e, r) {
     console.log(r);
@@ -71,7 +71,7 @@ REST.prototype.stop = function(err) {
 
 app.all('/relatorio.php', function(req, res) {
    res.render('relatorio');
-})
+});
 
 
 
