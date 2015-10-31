@@ -62,9 +62,9 @@ REST.prototype.stop = function(err) {
 new REST();
 
 
-app.get('/', function(req, res) {
-	res.redirect('./index.html');
-});
+//app.get('/', function(req, res) {
+//	res.redirect('./index.html');
+//});
 
 app.get('/relatorio', function(req, res) {
 	res.redirect('./relatorio.php');
