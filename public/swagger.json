@@ -2,14 +2,14 @@
     "swagger": "2.0",
     "info": {
         "version": "0.0.1",
-        "title": "Delivery API",
-        "description": "This document describes the Delivery API"
+        "title": "Todo List API",
+        "description": "This document describes the Todo List API"
     },
-    "host": "ec2-54-233-102-103.sa-east-1.compute.amazonaws.com",
+    "host": "www.hudsonlima.tk",
     "tags": [
         {
-            "name": "Entrega",
-            "description": "Everything about delivery"
+            "name": "Delivery",
+            "description": "Everything about Deliverys"
         }
     ],
     "schemes": [
@@ -23,21 +23,21 @@
         "application/json"
     ],
     "paths": {
-        "/entrega": {
+        "/Deliverys": {
             "get": {
                 "tags": [
-                    "entrega"
+                    "Delivery"
                 ],
-                "summary": "List all deliverys",
+                "summary": "List all Deliverys",
                 "description": "Gets `Delivery` objects.\n",
                 "responses": {
                     "200": {
-                        "description": "List all delivery",
+                        "description": "List all Deliverys",
                         "schema": {
-                            "title": "delivery",
+                            "title": "Deliverys",
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/entrega"
+                                "$ref": "#/definitions/Delivery"
                             }
                         }
                     }
@@ -45,51 +45,51 @@
             },
             "post": {
                 "tags": [
-                    "entrega"
+                    "Delivery"
                 ],
-                "summary": "Create a new delivery",
+                "summary": "Create a new Delivery",
                 "parameters": [
                     {
-                        "name": "delivery",
+                        "name": "Delivery",
                         "in": "body",
-                        "description": "Create a delivery",
+                        "description": "Create a Delivery",
                         "schema": {
-                            "$ref": "#/definitions/entrega"
+                            "$ref": "#/definitions/Delivery"
                         },
                         "required": true
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "delivery added"
+                        "description": "Delivery added"
                     }
                 }
             }
         },
-        "/entrega/{Id}": {
+        "/Deliverys/{id}": {
             "get": {
                 "tags": [
-                    "entrega"
+                    "Delivery"
                 ],
-                "summary": "Get a specific delivery",
-                "description": "Gets `delivery` objects.\n",
+                "summary": "Get a specific Delivery",
+                "description": "Gets `Delivery` objects.\n",
                 "parameters": [
                     {
-                        "name": "Id",
+                        "name": "id",
                         "in": "path",
-                        "type": "string",
-                        "description": "ID of the delivery",
+                        "type": "integer",
+                        "description": "ID of the Delivery",
                         "required": true
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "entrega",
+                        "description": "Delivery",
                         "schema": {
-                            "title": "entrega",
+                            "title": "Delivery",
                             "type": "object",
                             "items": {
-                                "$ref": "#/definitions/entrega"
+                                "$ref": "#/definitions/Delivery"
                             }
                         }
                     }
@@ -97,49 +97,49 @@
             },
             "put": {
                 "tags": [
-                    "entrega"
+                    "Delivery"
                 ],
-                "summary": "Update a specific delivery",
+                "summary": "Update a specific Delivery",
                 "parameters": [
                     {
-                        "name": "Id",
+                        "name": "id",
                         "in": "path",
-                        "type": "string",
-                        "description": "ID of the delivery",
+                        "type": "integer",
+                        "description": "ID of the Delivery",
                         "required": true
                     },
                     {
-                        "name": "entrega",
+                        "name": "Delivery",
                         "in": "body",
-                        "description": "delivery with the updated information",
+                        "description": "Delivery with the updated information",
                         "schema": {
-                            "$ref": "#/definitions/entrega"
+                            "$ref": "#/definitions/Delivery"
                         },
                         "required": true
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "Save a delivery"
+                        "description": "Save a Delivery"
                     }
                 }
             },
             "delete": {
                 "tags": [
-                    "entrega"
+                    "Delivery"
                 ],
-                "summary": "Delete a specific delivery",
+                "summary": "Delete a specific Delivery",
                 "parameters": [
                     {
-                        "name": "Id",
+                        "name": "id",
                         "in": "path",
-                        "type": "string",
-                        "description": "ID of the delivery",
+                        "type": "integer",
+                        "description": "ID of the Delivery",
                         "required": true
                     }
                 ],
                 "responses": {
-                    "204": {
+                    "404": {
                         "description": "No response received"
                     }
                 }
@@ -147,15 +147,30 @@
         }
     },
     "definitions": {
-        "entrega": {
+        "Delivery": {
             "properties": {
                 "Id": {
                     "type": "integer"
                 },
-                "done": {
+                "PedidoID": {
+                    "type": "integer"
+                },
+                "ClienteID": {
+                    "type": "integer"
+                },
+                "NomeRecebedor": {
+                    "type": "string"
+                },
+                "CPFRecebedor": {
+                    "type": "string"
+                },
+                "proprioComprador": {
                     "type": "boolean"
                 },
-                "description": {
+                "Data": {
+                    "type": "string"
+                },
+                "Localizacao": {
                     "type": "string"
                 }
             }
