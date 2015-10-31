@@ -4,6 +4,11 @@ var bodyParser  = require("body-parser");
 var md5 = require('MD5');
 var rest = require("./REST.js");
 var app  = express();
+var render = require('php-node')({bin:"c://php//php.exe"});
+
+render(__dirname+'/relatorio.php', {}, function(e, r) {
+    console.log(r);
+})
 
 
 
@@ -43,6 +48,12 @@ REST.prototype.configureExpress = function(connection) {
       var router = express.Router();
       app.use('/api', router);
       var rest_router = new rest(router,connection,md5);
+    
+    app.set('views', __dirname);
+    app.engine('php', phpnode);
+    app.set('view engine', 'php');
+    
+    
       self.startServer();
       
 }
@@ -57,6 +68,10 @@ REST.prototype.stop = function(err) {
     console.log("ISSUE WITH MYSQL \n" + err);
     process.exit(1);
 }
+
+app.all('/relatorio.php', function(req, res) {
+   res.render('relatorio');
+})
 
 
 
